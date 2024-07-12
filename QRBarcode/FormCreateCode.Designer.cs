@@ -1,6 +1,6 @@
-﻿namespace BarcodeTest
+﻿namespace QRBarcode
 {
-    partial class Form2
+    partial class FormCreateCode
     {
         /// <summary>
         /// Required designer variable.
@@ -19,7 +19,6 @@
             }
             base.Dispose(disposing);
         }
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -29,10 +28,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.bGenerate = new System.Windows.Forms.Button();
+            this.BGenerate = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gBBar = new System.Windows.Forms.GroupBox();
-            this.cBEncoding = new System.Windows.Forms.ComboBox();
+            this.CBEncoding = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.gBQR = new System.Windows.Forms.GroupBox();
             this.textBQRVer = new System.Windows.Forms.TextBox();
@@ -42,22 +41,22 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tBSizeQR = new System.Windows.Forms.TextBox();
-            this.bPrev = new System.Windows.Forms.Button();
-            this.cBColor = new System.Windows.Forms.CheckBox();
-            this.bColor = new System.Windows.Forms.Button();
+            this.BsPrev = new System.Windows.Forms.Button();
+            this.CBColor = new System.Windows.Forms.CheckBox();
+            this.BColor = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.cBExtension = new System.Windows.Forms.ComboBox();
+            this.CBExtension = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBar = new System.Windows.Forms.CheckBox();
-            this.checkQR = new System.Windows.Forms.CheckBox();
-            this.bSave = new System.Windows.Forms.Button();
-            this.bPath = new System.Windows.Forms.Button();
+            this.CheckBar = new System.Windows.Forms.CheckBox();
+            this.CheckQR = new System.Windows.Forms.CheckBox();
+            this.BSave = new System.Windows.Forms.Button();
+            this.BPath = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.tBPath = new System.Windows.Forms.TextBox();
+            this.TBPath = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tBName = new System.Windows.Forms.TextBox();
+            this.TBName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tBText = new System.Windows.Forms.TextBox();
+            this.TBText = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -76,20 +75,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             this.SuspendLayout();
             // 
-            // bGenerate
+            // BGenerate
             // 
-            this.bGenerate.Location = new System.Drawing.Point(179, 324);
-            this.bGenerate.Name = "bGenerate";
-            this.bGenerate.Size = new System.Drawing.Size(130, 23);
-            this.bGenerate.TabIndex = 1;
-            this.bGenerate.Text = "Сгенерировать";
-            this.bGenerate.UseVisualStyleBackColor = true;
-            this.bGenerate.Click += new System.EventHandler(this.bGenerate_Click);
+            this.BGenerate.Location = new System.Drawing.Point(179, 324);
+            this.BGenerate.Name = "BGenerate";
+            this.BGenerate.Size = new System.Drawing.Size(130, 23);
+            this.BGenerate.TabIndex = 1;
+            this.BGenerate.Text = "Сгенерировать";
+            this.BGenerate.UseVisualStyleBackColor = true;
+            this.BGenerate.Click += new System.EventHandler(this.BGenerate_Click);
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(0, 1);
             this.splitContainer1.Name = "splitContainer1";
@@ -98,23 +97,23 @@
             // 
             this.splitContainer1.Panel1.Controls.Add(this.gBBar);
             this.splitContainer1.Panel1.Controls.Add(this.gBQR);
-            this.splitContainer1.Panel1.Controls.Add(this.bPrev);
-            this.splitContainer1.Panel1.Controls.Add(this.cBColor);
-            this.splitContainer1.Panel1.Controls.Add(this.bColor);
+            this.splitContainer1.Panel1.Controls.Add(this.BsPrev);
+            this.splitContainer1.Panel1.Controls.Add(this.CBColor);
+            this.splitContainer1.Panel1.Controls.Add(this.BColor);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Controls.Add(this.cBExtension);
+            this.splitContainer1.Panel1.Controls.Add(this.CBExtension);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.checkBar);
-            this.splitContainer1.Panel1.Controls.Add(this.checkQR);
-            this.splitContainer1.Panel1.Controls.Add(this.bSave);
-            this.splitContainer1.Panel1.Controls.Add(this.bPath);
+            this.splitContainer1.Panel1.Controls.Add(this.CheckBar);
+            this.splitContainer1.Panel1.Controls.Add(this.CheckQR);
+            this.splitContainer1.Panel1.Controls.Add(this.BSave);
+            this.splitContainer1.Panel1.Controls.Add(this.BPath);
             this.splitContainer1.Panel1.Controls.Add(this.label6);
-            this.splitContainer1.Panel1.Controls.Add(this.tBPath);
+            this.splitContainer1.Panel1.Controls.Add(this.TBPath);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.tBName);
+            this.splitContainer1.Panel1.Controls.Add(this.TBName);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
-            this.splitContainer1.Panel1.Controls.Add(this.tBText);
-            this.splitContainer1.Panel1.Controls.Add(this.bGenerate);
+            this.splitContainer1.Panel1.Controls.Add(this.TBText);
+            this.splitContainer1.Panel1.Controls.Add(this.BGenerate);
             // 
             // splitContainer1.Panel2
             // 
@@ -125,7 +124,7 @@
             // 
             // gBBar
             // 
-            this.gBBar.Controls.Add(this.cBEncoding);
+            this.gBBar.Controls.Add(this.CBEncoding);
             this.gBBar.Controls.Add(this.label11);
             this.gBBar.Enabled = false;
             this.gBBar.Location = new System.Drawing.Point(2, 147);
@@ -135,21 +134,21 @@
             this.gBBar.TabStop = false;
             this.gBBar.Visible = false;
             // 
-            // cBEncoding
+            // CBEncoding
             // 
-            this.cBEncoding.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBEncoding.FormattingEnabled = true;
-            this.cBEncoding.Items.AddRange(new object[] {
+            this.CBEncoding.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBEncoding.FormattingEnabled = true;
+            this.CBEncoding.Items.AddRange(new object[] {
             "Aztec",
             "Code128",
             "Code39",
             "Code93",
             "DataMatrix",
             "PDF417"});
-            this.cBEncoding.Location = new System.Drawing.Point(14, 27);
-            this.cBEncoding.Name = "cBEncoding";
-            this.cBEncoding.Size = new System.Drawing.Size(147, 24);
-            this.cBEncoding.TabIndex = 5;
+            this.CBEncoding.Location = new System.Drawing.Point(14, 27);
+            this.CBEncoding.Name = "CBEncoding";
+            this.CBEncoding.Size = new System.Drawing.Size(147, 24);
+            this.CBEncoding.TabIndex = 5;
             // 
             // label11
             // 
@@ -184,8 +183,8 @@
             this.textBQRVer.Size = new System.Drawing.Size(61, 22);
             this.textBQRVer.TabIndex = 6;
             this.textBQRVer.Text = "1";
-            this.textBQRVer.TextChanged += new System.EventHandler(this.textBQRVer_TextChanged);
-            this.textBQRVer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBQRVer_KeyPress);
+            this.textBQRVer.TextChanged += new System.EventHandler(this.TextBQRVer_TextChanged);
+            this.textBQRVer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBQRVer_KeyPress);
             // 
             // trackBQRVer
             // 
@@ -196,7 +195,7 @@
             this.trackBQRVer.Size = new System.Drawing.Size(151, 56);
             this.trackBQRVer.TabIndex = 5;
             this.trackBQRVer.Value = 1;
-            this.trackBQRVer.Scroll += new System.EventHandler(this.trackBQRVer_Scroll);
+            this.trackBQRVer.Scroll += new System.EventHandler(this.TrackBQRVer_Scroll);
             // 
             // cBErrorCor
             // 
@@ -246,39 +245,39 @@
             this.tBSizeQR.Size = new System.Drawing.Size(100, 22);
             this.tBSizeQR.TabIndex = 0;
             this.tBSizeQR.Text = "500";
-            this.tBSizeQR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBSizeQR_KeyPress);
+            this.tBSizeQR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSizeQR_KeyPress);
             // 
-            // bPrev
+            // BsPrev
             // 
-            this.bPrev.Location = new System.Drawing.Point(13, 472);
-            this.bPrev.Name = "bPrev";
-            this.bPrev.Size = new System.Drawing.Size(193, 23);
-            this.bPrev.TabIndex = 30;
-            this.bPrev.Text = "Вернуться к выбору";
-            this.bPrev.UseVisualStyleBackColor = true;
-            this.bPrev.Click += new System.EventHandler(this.bPrev_Click);
+            this.BsPrev.Location = new System.Drawing.Point(13, 472);
+            this.BsPrev.Name = "BsPrev";
+            this.BsPrev.Size = new System.Drawing.Size(193, 23);
+            this.BsPrev.TabIndex = 30;
+            this.BsPrev.Text = "Вернуться к выбору";
+            this.BsPrev.UseVisualStyleBackColor = true;
+            this.BsPrev.Click += new System.EventHandler(this.BPrev_Click);
             // 
-            // cBColor
+            // CBColor
             // 
-            this.cBColor.AutoSize = true;
-            this.cBColor.Location = new System.Drawing.Point(6, 99);
-            this.cBColor.Name = "cBColor";
-            this.cBColor.Size = new System.Drawing.Size(200, 36);
-            this.cBColor.TabIndex = 27;
-            this.cBColor.Text = "Использовать выбранный\r\n цвет";
-            this.cBColor.UseVisualStyleBackColor = true;
-            this.cBColor.CheckedChanged += new System.EventHandler(this.cBColor_CheckedChanged);
+            this.CBColor.AutoSize = true;
+            this.CBColor.Location = new System.Drawing.Point(6, 99);
+            this.CBColor.Name = "CBColor";
+            this.CBColor.Size = new System.Drawing.Size(200, 36);
+            this.CBColor.TabIndex = 27;
+            this.CBColor.Text = "Использовать выбранный\r\n цвет";
+            this.CBColor.UseVisualStyleBackColor = true;
+            this.CBColor.CheckedChanged += new System.EventHandler(this.CBColor_CheckedChanged);
             // 
-            // bColor
+            // BColor
             // 
-            this.bColor.Enabled = false;
-            this.bColor.Location = new System.Drawing.Point(235, 99);
-            this.bColor.Name = "bColor";
-            this.bColor.Size = new System.Drawing.Size(83, 42);
-            this.bColor.TabIndex = 26;
-            this.bColor.Text = "Выбрать цвет";
-            this.bColor.UseVisualStyleBackColor = true;
-            this.bColor.Click += new System.EventHandler(this.bColor_Click);
+            this.BColor.Enabled = false;
+            this.BColor.Location = new System.Drawing.Point(235, 99);
+            this.BColor.Name = "BColor";
+            this.BColor.Size = new System.Drawing.Size(83, 42);
+            this.BColor.TabIndex = 26;
+            this.BColor.Text = "Выбрать цвет";
+            this.BColor.UseVisualStyleBackColor = true;
+            this.BColor.Click += new System.EventHandler(this.BColor_Click);
             // 
             // label2
             // 
@@ -289,11 +288,11 @@
             this.label2.TabIndex = 25;
             this.label2.Text = "Формат расширения файла";
             // 
-            // cBExtension
+            // CBExtension
             // 
-            this.cBExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBExtension.FormattingEnabled = true;
-            this.cBExtension.Items.AddRange(new object[] {
+            this.CBExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBExtension.FormattingEnabled = true;
+            this.CBExtension.Items.AddRange(new object[] {
             ".png",
             ".pdf",
             ".jpeg",
@@ -302,10 +301,10 @@
             ".html",
             ".tiff",
             ".bmp"});
-            this.cBExtension.Location = new System.Drawing.Point(6, 441);
-            this.cBExtension.Name = "cBExtension";
-            this.cBExtension.Size = new System.Drawing.Size(75, 24);
-            this.cBExtension.TabIndex = 24;
+            this.CBExtension.Location = new System.Drawing.Point(6, 441);
+            this.CBExtension.Name = "CBExtension";
+            this.CBExtension.Size = new System.Drawing.Size(75, 24);
+            this.CBExtension.TabIndex = 24;
             // 
             // label1
             // 
@@ -316,47 +315,47 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "Выберите формат кода";
             // 
-            // checkBar
+            // CheckBar
             // 
-            this.checkBar.AutoSize = true;
-            this.checkBar.Location = new System.Drawing.Point(86, 73);
-            this.checkBar.Name = "checkBar";
-            this.checkBar.Size = new System.Drawing.Size(50, 20);
-            this.checkBar.TabIndex = 22;
-            this.checkBar.Text = "Bar";
-            this.checkBar.UseVisualStyleBackColor = true;
-            this.checkBar.CheckedChanged += new System.EventHandler(this.checkBar_CheckedChanged);
+            this.CheckBar.AutoSize = true;
+            this.CheckBar.Location = new System.Drawing.Point(86, 73);
+            this.CheckBar.Name = "CheckBar";
+            this.CheckBar.Size = new System.Drawing.Size(50, 20);
+            this.CheckBar.TabIndex = 22;
+            this.CheckBar.Text = "Bar";
+            this.CheckBar.UseVisualStyleBackColor = true;
+            this.CheckBar.CheckedChanged += new System.EventHandler(this.CheckBar_CheckedChanged);
             // 
-            // checkQR
+            // CheckQR
             // 
-            this.checkQR.AutoSize = true;
-            this.checkQR.Location = new System.Drawing.Point(6, 73);
-            this.checkQR.Name = "checkQR";
-            this.checkQR.Size = new System.Drawing.Size(49, 20);
-            this.checkQR.TabIndex = 21;
-            this.checkQR.Text = "QR";
-            this.checkQR.UseVisualStyleBackColor = true;
-            this.checkQR.CheckedChanged += new System.EventHandler(this.checkQR_CheckedChanged);
+            this.CheckQR.AutoSize = true;
+            this.CheckQR.Location = new System.Drawing.Point(6, 73);
+            this.CheckQR.Name = "CheckQR";
+            this.CheckQR.Size = new System.Drawing.Size(49, 20);
+            this.CheckQR.TabIndex = 21;
+            this.CheckQR.Text = "QR";
+            this.CheckQR.UseVisualStyleBackColor = true;
+            this.CheckQR.CheckedChanged += new System.EventHandler(this.CheckQR_CheckedChanged);
             // 
-            // bSave
+            // BSave
             // 
-            this.bSave.Location = new System.Drawing.Point(184, 442);
-            this.bSave.Name = "bSave";
-            this.bSave.Size = new System.Drawing.Size(125, 23);
-            this.bSave.TabIndex = 18;
-            this.bSave.Text = "Сохранить файл";
-            this.bSave.UseVisualStyleBackColor = true;
-            this.bSave.Click += new System.EventHandler(this.bSave_Click);
+            this.BSave.Location = new System.Drawing.Point(184, 442);
+            this.BSave.Name = "BSave";
+            this.BSave.Size = new System.Drawing.Size(125, 23);
+            this.BSave.TabIndex = 18;
+            this.BSave.Text = "Сохранить файл";
+            this.BSave.UseVisualStyleBackColor = true;
+            this.BSave.Click += new System.EventHandler(this.BSave_Click);
             // 
-            // bPath
+            // BPath
             // 
-            this.bPath.Location = new System.Drawing.Point(247, 397);
-            this.bPath.Name = "bPath";
-            this.bPath.Size = new System.Drawing.Size(62, 23);
-            this.bPath.TabIndex = 17;
-            this.bPath.Text = "Обзор";
-            this.bPath.UseVisualStyleBackColor = true;
-            this.bPath.Click += new System.EventHandler(this.bPath_Click);
+            this.BPath.Location = new System.Drawing.Point(247, 397);
+            this.BPath.Name = "BPath";
+            this.BPath.Size = new System.Drawing.Size(62, 23);
+            this.BPath.TabIndex = 17;
+            this.BPath.Text = "Обзор";
+            this.BPath.UseVisualStyleBackColor = true;
+            this.BPath.Click += new System.EventHandler(this.BPath_Click);
             // 
             // label6
             // 
@@ -367,12 +366,12 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Путь сохоанения файла";
             // 
-            // tBPath
+            // TBPath
             // 
-            this.tBPath.Location = new System.Drawing.Point(6, 397);
-            this.tBPath.Name = "tBPath";
-            this.tBPath.Size = new System.Drawing.Size(234, 22);
-            this.tBPath.TabIndex = 14;
+            this.TBPath.Location = new System.Drawing.Point(6, 397);
+            this.TBPath.Name = "TBPath";
+            this.TBPath.Size = new System.Drawing.Size(234, 22);
+            this.TBPath.TabIndex = 14;
             // 
             // label4
             // 
@@ -383,13 +382,13 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Названия файла";
             // 
-            // tBName
+            // TBName
             // 
-            this.tBName.Location = new System.Drawing.Point(6, 353);
-            this.tBName.Name = "tBName";
-            this.tBName.Size = new System.Drawing.Size(257, 22);
-            this.tBName.TabIndex = 11;
-            this.tBName.Text = "MyCode";
+            this.TBName.Location = new System.Drawing.Point(6, 353);
+            this.TBName.Name = "TBName";
+            this.TBName.Size = new System.Drawing.Size(257, 22);
+            this.TBName.TabIndex = 11;
+            this.TBName.Text = "MyCode";
             // 
             // label3
             // 
@@ -400,18 +399,18 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Введите текст для кодировки";
             // 
-            // tBText
+            // TBText
             // 
-            this.tBText.Location = new System.Drawing.Point(6, 29);
-            this.tBText.Name = "tBText";
-            this.tBText.Size = new System.Drawing.Size(257, 22);
-            this.tBText.TabIndex = 2;
-            this.tBText.Text = "Hello world";
+            this.TBText.Location = new System.Drawing.Point(6, 29);
+            this.TBText.Name = "TBText";
+            this.TBText.Size = new System.Drawing.Size(257, 22);
+            this.TBText.TabIndex = 2;
+            this.TBText.Text = "Hello world";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Location = new System.Drawing.Point(4, 4);
             this.pictureBox1.Name = "pictureBox1";
@@ -433,13 +432,13 @@
             // 
             this.errorProvider3.ContainerControl = this;
             // 
-            // Form2
+            // FormCreateCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(966, 514);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Form2";
+            this.Name = "FormCreateCode";
             this.Text = "Создание кода";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -460,28 +459,28 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button bGenerate;
+        private System.Windows.Forms.Button BGenerate;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tBText;
+        private System.Windows.Forms.TextBox TBText;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tBName;
+        private System.Windows.Forms.TextBox TBName;
         private System.Windows.Forms.ErrorProvider errorProvider2;
-        private System.Windows.Forms.TextBox tBPath;
+        private System.Windows.Forms.TextBox TBPath;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button bPath;
-        private System.Windows.Forms.Button bSave;
-        private System.Windows.Forms.CheckBox checkQR;
-        private System.Windows.Forms.CheckBox checkBar;
+        private System.Windows.Forms.Button BPath;
+        private System.Windows.Forms.Button BSave;
+        private System.Windows.Forms.CheckBox CheckQR;
+        private System.Windows.Forms.CheckBox CheckBar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cBExtension;
+        private System.Windows.Forms.ComboBox CBExtension;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button bColor;
+        private System.Windows.Forms.Button BColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.CheckBox cBColor;
-        private System.Windows.Forms.Button bPrev;
+        private System.Windows.Forms.CheckBox CBColor;
+        private System.Windows.Forms.Button BsPrev;
         private System.Windows.Forms.GroupBox gBQR;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tBSizeQR;
@@ -493,6 +492,6 @@
         private System.Windows.Forms.TextBox textBQRVer;
         private System.Windows.Forms.GroupBox gBBar;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cBEncoding;
+        private System.Windows.Forms.ComboBox CBEncoding;
     }
 }
