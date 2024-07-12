@@ -8,28 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BarcodeTest
+namespace QRBarcode
 {
-    public partial class Form1 : Form
+    public partial class FormChoose : Form
     {
-        public Form1()
+        public FormChoose()
         {
             InitializeComponent();
         }
-
-        private void bCreate_Click(object sender, EventArgs e)
+        private void BCreate_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            FormCreateCode formCreateCode = new FormCreateCode();
             this.Hide();
-            form2.ShowDialog();
+            formCreateCode.ShowDialog();
             this.Close();
         }
 
-        private void bRead_Click(object sender, EventArgs e)
+        private void BRead_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
+            FormReadCode formReadCode = new FormReadCode();
             this.Hide();
-            form3.ShowDialog();
+            formReadCode.ShowDialog();
             this.Close();
         }
     }

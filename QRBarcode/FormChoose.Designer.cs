@@ -1,6 +1,6 @@
-﻿namespace BarcodeTest
+﻿namespace QRBarcode
 {
-    partial class Form1
+    partial class FormChoose
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,39 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bCreate = new System.Windows.Forms.Button();
-            this.bRead = new System.Windows.Forms.Button();
+            this.BCreate = new System.Windows.Forms.Button();
+            this.BRead = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // bCreate
+            // BCreate
             // 
-            this.bCreate.Location = new System.Drawing.Point(12, 12);
-            this.bCreate.Name = "bCreate";
-            this.bCreate.Size = new System.Drawing.Size(126, 49);
-            this.bCreate.TabIndex = 0;
-            this.bCreate.Text = "Создание кода";
-            this.bCreate.UseVisualStyleBackColor = true;
-            this.bCreate.Click += new System.EventHandler(this.bCreate_Click);
+            this.BCreate.Location = new System.Drawing.Point(12, 12);
+            this.BCreate.Name = "BCreate";
+            this.BCreate.Size = new System.Drawing.Size(126, 49);
+            this.BCreate.TabIndex = 0;
+            this.BCreate.Text = "Создание кода";
+            this.BCreate.UseVisualStyleBackColor = true;
+            this.BCreate.Click += new System.EventHandler(this.BCreate_Click);
             // 
-            // bRead
+            // BRead
             // 
-            this.bRead.Location = new System.Drawing.Point(144, 12);
-            this.bRead.Name = "bRead";
-            this.bRead.Size = new System.Drawing.Size(126, 49);
-            this.bRead.TabIndex = 1;
-            this.bRead.Text = "Чтение кода";
-            this.bRead.UseVisualStyleBackColor = true;
-            this.bRead.Click += new System.EventHandler(this.bRead_Click);
+            this.BRead.Location = new System.Drawing.Point(144, 12);
+            this.BRead.Name = "BRead";
+            this.BRead.Size = new System.Drawing.Size(126, 49);
+            this.BRead.TabIndex = 1;
+            this.BRead.Text = "Чтение кода";
+            this.BRead.UseVisualStyleBackColor = true;
+            this.BRead.Click += new System.EventHandler(this.BRead_Click);
             // 
-            // Form1
+            // Formchoose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 73);
-            this.Controls.Add(this.bRead);
-            this.Controls.Add(this.bCreate);
+            this.Controls.Add(this.BRead);
+            this.Controls.Add(this.BCreate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "Form1";
+            this.Name = "Formchoose";
             this.Text = "C/R-code";
             this.ResumeLayout(false);
 
@@ -68,8 +68,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bCreate;
-        private System.Windows.Forms.Button bRead;
+        private System.Windows.Forms.Button BCreate;
+        private System.Windows.Forms.Button BRead;
     }
 }
-
