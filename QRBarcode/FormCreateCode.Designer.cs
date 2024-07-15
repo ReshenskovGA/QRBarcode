@@ -34,13 +34,13 @@
             this.CBEncoding = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.gBQR = new System.Windows.Forms.GroupBox();
-            this.textBQRVer = new System.Windows.Forms.TextBox();
-            this.trackBQRVer = new System.Windows.Forms.TrackBar();
-            this.cBErrorCor = new System.Windows.Forms.ComboBox();
+            this.TextBQRVer = new System.Windows.Forms.TextBox();
+            this.TrackBQRVer = new System.Windows.Forms.TrackBar();
+            this.CBErrorCor = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.tBSizeQR = new System.Windows.Forms.TextBox();
+            this.TBSizeQR = new System.Windows.Forms.TextBox();
             this.BsPrev = new System.Windows.Forms.Button();
             this.CBColor = new System.Windows.Forms.CheckBox();
             this.BColor = new System.Windows.Forms.Button();
@@ -68,7 +68,7 @@
             this.splitContainer1.SuspendLayout();
             this.gBBar.SuspendLayout();
             this.gBQR.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBQRVer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackBQRVer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
@@ -127,7 +127,7 @@
             this.gBBar.Controls.Add(this.CBEncoding);
             this.gBBar.Controls.Add(this.label11);
             this.gBBar.Enabled = false;
-            this.gBBar.Location = new System.Drawing.Point(2, 147);
+            this.gBBar.Location = new System.Drawing.Point(6, 141);
             this.gBBar.Name = "gBBar";
             this.gBBar.Size = new System.Drawing.Size(316, 114);
             this.gBBar.TabIndex = 2;
@@ -161,13 +161,13 @@
             // 
             // gBQR
             // 
-            this.gBQR.Controls.Add(this.textBQRVer);
-            this.gBQR.Controls.Add(this.trackBQRVer);
-            this.gBQR.Controls.Add(this.cBErrorCor);
+            this.gBQR.Controls.Add(this.TextBQRVer);
+            this.gBQR.Controls.Add(this.TrackBQRVer);
+            this.gBQR.Controls.Add(this.CBErrorCor);
             this.gBQR.Controls.Add(this.label8);
             this.gBQR.Controls.Add(this.label7);
             this.gBQR.Controls.Add(this.label5);
-            this.gBQR.Controls.Add(this.tBSizeQR);
+            this.gBQR.Controls.Add(this.TBSizeQR);
             this.gBQR.Enabled = false;
             this.gBQR.Location = new System.Drawing.Point(6, 141);
             this.gBQR.Name = "gBQR";
@@ -176,40 +176,40 @@
             this.gBQR.TabStop = false;
             this.gBQR.Visible = false;
             // 
-            // textBQRVer
+            // TextBQRVer
             // 
-            this.textBQRVer.Location = new System.Drawing.Point(173, 30);
-            this.textBQRVer.Name = "textBQRVer";
-            this.textBQRVer.Size = new System.Drawing.Size(61, 22);
-            this.textBQRVer.TabIndex = 6;
-            this.textBQRVer.Text = "1";
-            this.textBQRVer.TextChanged += new System.EventHandler(this.TextBQRVer_TextChanged);
-            this.textBQRVer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBQRVer_KeyPress);
+            this.TextBQRVer.Location = new System.Drawing.Point(173, 30);
+            this.TextBQRVer.Name = "TextBQRVer";
+            this.TextBQRVer.Size = new System.Drawing.Size(61, 22);
+            this.TextBQRVer.TabIndex = 6;
+            this.TextBQRVer.Text = "1";
+            this.TextBQRVer.TextChanged += new System.EventHandler(this.TextBQRVer_TextChanged);
+            this.TextBQRVer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBQRVer_KeyPress);
             // 
-            // trackBQRVer
+            // TrackBQRVer
             // 
-            this.trackBQRVer.Location = new System.Drawing.Point(159, 58);
-            this.trackBQRVer.Maximum = 40;
-            this.trackBQRVer.Minimum = 1;
-            this.trackBQRVer.Name = "trackBQRVer";
-            this.trackBQRVer.Size = new System.Drawing.Size(151, 56);
-            this.trackBQRVer.TabIndex = 5;
-            this.trackBQRVer.Value = 1;
-            this.trackBQRVer.Scroll += new System.EventHandler(this.TrackBQRVer_Scroll);
+            this.TrackBQRVer.Location = new System.Drawing.Point(159, 58);
+            this.TrackBQRVer.Maximum = 40;
+            this.TrackBQRVer.Minimum = 1;
+            this.TrackBQRVer.Name = "TrackBQRVer";
+            this.TrackBQRVer.Size = new System.Drawing.Size(151, 56);
+            this.TrackBQRVer.TabIndex = 5;
+            this.TrackBQRVer.Value = 1;
+            this.TrackBQRVer.Scroll += new System.EventHandler(this.TrackBQRVer_Scroll);
             // 
-            // cBErrorCor
+            // CBErrorCor
             // 
-            this.cBErrorCor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBErrorCor.FormattingEnabled = true;
-            this.cBErrorCor.Items.AddRange(new object[] {
+            this.CBErrorCor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBErrorCor.FormattingEnabled = true;
+            this.CBErrorCor.Items.AddRange(new object[] {
             "Высочайший",
             "Высокий",
             "Средний",
             "Низкий"});
-            this.cBErrorCor.Location = new System.Drawing.Point(6, 78);
-            this.cBErrorCor.Name = "cBErrorCor";
-            this.cBErrorCor.Size = new System.Drawing.Size(133, 24);
-            this.cBErrorCor.TabIndex = 4;
+            this.CBErrorCor.Location = new System.Drawing.Point(6, 78);
+            this.CBErrorCor.Name = "CBErrorCor";
+            this.CBErrorCor.Size = new System.Drawing.Size(133, 24);
+            this.CBErrorCor.TabIndex = 4;
             // 
             // label8
             // 
@@ -238,14 +238,14 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Размер кода";
             // 
-            // tBSizeQR
+            // TBSizeQR
             // 
-            this.tBSizeQR.Location = new System.Drawing.Point(6, 33);
-            this.tBSizeQR.Name = "tBSizeQR";
-            this.tBSizeQR.Size = new System.Drawing.Size(100, 22);
-            this.tBSizeQR.TabIndex = 0;
-            this.tBSizeQR.Text = "500";
-            this.tBSizeQR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSizeQR_KeyPress);
+            this.TBSizeQR.Location = new System.Drawing.Point(6, 33);
+            this.TBSizeQR.Name = "TBSizeQR";
+            this.TBSizeQR.Size = new System.Drawing.Size(100, 22);
+            this.TBSizeQR.TabIndex = 0;
+            this.TBSizeQR.Text = "500";
+            this.TBSizeQR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBSizeQR_KeyPress);
             // 
             // BsPrev
             // 
@@ -449,7 +449,7 @@
             this.gBBar.PerformLayout();
             this.gBQR.ResumeLayout(false);
             this.gBQR.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBQRVer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackBQRVer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
@@ -483,13 +483,13 @@
         private System.Windows.Forms.Button BsPrev;
         private System.Windows.Forms.GroupBox gBQR;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tBSizeQR;
-        private System.Windows.Forms.TrackBar trackBQRVer;
-        private System.Windows.Forms.ComboBox cBErrorCor;
+        private System.Windows.Forms.TextBox TBSizeQR;
+        private System.Windows.Forms.TrackBar TrackBQRVer;
+        private System.Windows.Forms.ComboBox CBErrorCor;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ErrorProvider errorProvider3;
-        private System.Windows.Forms.TextBox textBQRVer;
+        private System.Windows.Forms.TextBox TextBQRVer;
         private System.Windows.Forms.GroupBox gBBar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox CBEncoding;

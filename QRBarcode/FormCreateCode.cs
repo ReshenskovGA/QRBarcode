@@ -15,8 +15,23 @@ namespace QRBarcode
 {
     public partial class FormCreateCode : Form
     {
-        private static readonly string[] Strcorlev = { "Высочайший", "Высокий", "Средний", "Низкий" };
-        private static readonly string[] Encodind = { "Aztec", "Code128", "Code39", "Code93", "DataMatrix", "PDF417" };
+        private enum Strcorlev
+        {
+            Высочайший,
+            Высокий,
+            Средний,
+            Низкий
+        }
+        private enum Encodind
+        {
+            Aztec,
+            Code128,
+            Code39,
+            Code93,
+            DataMatrix,
+            PDF417
+        }
+       
         private GeneratedBarcode Code;
         private static readonly string Folderpath = @"SaveCodes/";
         private int Numcode = 0;
@@ -61,10 +76,10 @@ namespace QRBarcode
                 var Text = TBText.Text;
                 if (CheckQR.Checked)
                 {
-                    if (String.IsNullOrEmpty(tBSizeQR.Text))
-                        tBSizeQR.Text = "500";
-                    if (String.IsNullOrEmpty(textBQRVer.Text))
-                        textBQRVer.Text = "1";
+                    if (String.IsNullOrEmpty(TBSizeQR.Text))
+                        TBSizeQR.Text = "500";
+                    if (String.IsNullOrEmpty(TextBQRVer.Text))
+                        TextBQRVer.Text = "1";
                     CreateQR(Text, Codepath);
                 }
                 if (CheckBar.Checked)
@@ -76,28 +91,25 @@ namespace QRBarcode
 
         private void CreateQR(string text, string path)
         {
-            const int HighestErrorCorrectionLevelIndex = 0;
-            const int MediumErrorCorrectionLevelIndex = 2;
-            const int LowErrorCorrectionLevelIndex = 3;
-        QRCodeWriter.QrErrorCorrectionLevel correction;
+            QRCodeWriter.QrErrorCorrectionLevel correction;
             //"Высочайший", "Высокий", "Средний", "Низкий"
-            switch (Array.IndexOf(Strcorlev, cBErrorCor.Text))
+            switch (Enum.Parse(typeof(Strcorlev), CBErrorCor.Text, true))
             {
-                case HighestErrorCorrectionLevelIndex:
+                case Strcorlev.Высочайший:
                     correction = QRCodeWriter.QrErrorCorrectionLevel.Highest;
                     break;
-                case MediumErrorCorrectionLevelIndex:
+                case Strcorlev.Средний:
                     correction = QRCodeWriter.QrErrorCorrectionLevel.Medium;
                     break;
-                case LowErrorCorrectionLevelIndex:
+                case Strcorlev.Низкий:
                     correction = QRCodeWriter.QrErrorCorrectionLevel.Low;
                     break;
                 default:
                     correction = QRCodeWriter.QrErrorCorrectionLevel.High;
                     break;
             }
-            var size = Convert.ToInt32(tBSizeQR.Text);
-            var verQR = Convert.ToInt32(textBQRVer.Text);
+            var size = Convert.ToInt32(TBSizeQR.Text);
+            var verQR = Convert.ToInt32(TextBQRVer.Text);
             Code = QRCodeWriter.CreateQrCode(text, size, correction, verQR);
             Color();
             Code.SaveAsPng(path);
@@ -105,29 +117,27 @@ namespace QRBarcode
         }
         private void CreateBar(string text, string path)
         {
-            const int AztecIndex = 0;
-            const int Code128Index = 1;
-            const int Code39Index = 2;
-            const int Code93Index = 3;
-            const int DataMatrixIndex = 4;
-            var encod = BarcodeEncoding.PDF417;
+            BarcodeEncoding encod;
             //"Aztec", "Code128", "Code39", "Code93", "DataMatrix", "PDF417"
-            switch (Array.IndexOf(Encodind, CBEncoding.Text))
+            switch (Enum.Parse(typeof(Encodind), CBEncoding.Text, true))
             {
-                case AztecIndex:
+                case Encodind.Aztec:
                     encod = BarcodeEncoding.Aztec;
                     break;
-                case Code128Index:
+                case Encodind.Code128:
                     encod = BarcodeEncoding.Code128;
                     break;
-                case Code39Index:
+                case Encodind.Code39:
                     encod = BarcodeEncoding.Code39;
                     break;
-                case Code93Index:
+                case Encodind.Code93:
                     encod = BarcodeEncoding.Code93;
                     break;
-                case DataMatrixIndex:
+                case Encodind.DataMatrix:
                     encod = BarcodeEncoding.DataMatrix;
+                    break;
+                default:
+                    encod = BarcodeEncoding.PDF417;
                     break;
             }
             Code = BarcodeWriter.CreateBarcode(text, encod);
@@ -301,19 +311,19 @@ namespace QRBarcode
 
         private void TextBQRVer_TextChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(textBQRVer.Text))
+            if (!String.IsNullOrEmpty(TextBQRVer.Text))
             {
-                if (Convert.ToInt32(textBQRVer.Text) < 1)
-                    textBQRVer.Text = "1";
-                if (Convert.ToInt32(textBQRVer.Text) > 40)
-                    textBQRVer.Text = "40";
-                trackBQRVer.Value = Convert.ToInt32(textBQRVer.Text);
+                if (Convert.ToInt32(TextBQRVer.Text) < 1)
+                    TextBQRVer.Text = "1";
+                if (Convert.ToInt32(TextBQRVer.Text) > 40)
+                    TextBQRVer.Text = "40";
+                TrackBQRVer.Value = Convert.ToInt32(TextBQRVer.Text);
             }
         }
 
         private void TrackBQRVer_Scroll(object sender, EventArgs e)
         {
-            textBQRVer.Text = trackBQRVer.Value.ToString();
+            TextBQRVer.Text = TrackBQRVer.Value.ToString();
         }
 
         private void TBSizeQR_KeyPress(object sender, KeyPressEventArgs e)
