@@ -87,8 +87,8 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(0, 1);
             this.splitContainer1.Name = "splitContainer1";
@@ -293,14 +293,13 @@
             this.CBExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBExtension.FormattingEnabled = true;
             this.CBExtension.Items.AddRange(new object[] {
-            ".png",
-            ".pdf",
-            ".jpeg",
-            ".jpg",
-            ".gif",
-            ".html",
-            ".tiff",
-            ".bmp"});
+            "png",
+            "pdf",
+            "jpeg",
+            "jpg",
+            "gif",
+            "html",
+            "bmp"});
             this.CBExtension.Location = new System.Drawing.Point(6, 441);
             this.CBExtension.Name = "CBExtension";
             this.CBExtension.Size = new System.Drawing.Size(75, 24);
@@ -406,11 +405,12 @@
             this.TBText.Size = new System.Drawing.Size(257, 22);
             this.TBText.TabIndex = 2;
             this.TBText.Text = "Hello world";
+            this.TBText.TextChanged += new System.EventHandler(this.TBText_TextChanged);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Location = new System.Drawing.Point(4, 4);
             this.pictureBox1.Name = "pictureBox1";

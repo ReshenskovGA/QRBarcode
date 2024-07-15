@@ -10,21 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace QRBarcode
 {
     public partial class FormCreateCode : Form
     {
-        private static readonly string[] extension = { ".png", ".pdf", ".jpeg", ".jpg", ".gif", ".html", ".bmp" };
-        //Extension extension = new Extension();
         private static readonly string[] Strcorlev = { "Высочайший", "Высокий", "Средний", "Низкий" };
         private static readonly string[] Encodind = { "Aztec", "Code128", "Code39", "Code93", "DataMatrix", "PDF417" };
         private GeneratedBarcode Code;
-        private string Codepath;
         private static readonly string Folderpath = @"SaveCodes/";
         private int Numcode = 0;
-
         public FormCreateCode()
         {
             InitializeComponent();
@@ -47,90 +42,105 @@ namespace QRBarcode
 
         private void BGenerate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                CreateCode();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при создании кода: " + ex.Message);
+            }
+        }
 
+        private void CreateCode()
+        {
             if (!Check())
             {
-                try
+                Numcode++;
+                var Codepath = Folderpath + Numcode + ".png";
+                var Text = TBText.Text;
+                if (CheckQR.Checked)
                 {
-                    Numcode++;
-                    Codepath = Folderpath + Numcode + ".png";
-                    var text = TBText.Text;
-                    if (CheckQR.Checked)
-                    {
-                        CreateQR(text);
-                    }
-                    if (CheckBar.Checked)
-                    {
-                        CreateBar(text);
-                    }
+                    if (String.IsNullOrEmpty(tBSizeQR.Text))
+                        tBSizeQR.Text = "500";
+                    if (String.IsNullOrEmpty(textBQRVer.Text))
+                        textBQRVer.Text = "1";
+                    CreateQR(Text, Codepath);
                 }
-                catch (Exception ex)
+                if (CheckBar.Checked)
                 {
-                    MessageBox.Show("Ошибка при создании кода: " + ex.Message);
+                    CreateBar(Text, Codepath);
                 }
             }
         }
-        private void CreateQR(string text)
+
+        private void CreateQR(string text, string path)
         {
-            QRCodeWriter.QrErrorCorrectionLevel correction;
+            const int HighestErrorCorrectionLevelIndex = 0;
+            const int MediumErrorCorrectionLevelIndex = 2;
+            const int LowErrorCorrectionLevelIndex = 3;
+        QRCodeWriter.QrErrorCorrectionLevel correction;
             //"Высочайший", "Высокий", "Средний", "Низкий"
             switch (Array.IndexOf(Strcorlev, cBErrorCor.Text))
             {
-                case 0:
+                case HighestErrorCorrectionLevelIndex:
                     correction = QRCodeWriter.QrErrorCorrectionLevel.Highest;
                     break;
-                case 2:
+                case MediumErrorCorrectionLevelIndex:
                     correction = QRCodeWriter.QrErrorCorrectionLevel.Medium;
                     break;
-                case 3:
+                case LowErrorCorrectionLevelIndex:
                     correction = QRCodeWriter.QrErrorCorrectionLevel.Low;
                     break;
                 default:
                     correction = QRCodeWriter.QrErrorCorrectionLevel.High;
                     break;
             }
-            if (String.IsNullOrEmpty(tBSizeQR.Text))
-                tBSizeQR.Text = "500";
-            if (String.IsNullOrEmpty(textBQRVer.Text))
-                textBQRVer.Text = "1";
             var size = Convert.ToInt32(tBSizeQR.Text);
             var verQR = Convert.ToInt32(textBQRVer.Text);
             Code = QRCodeWriter.CreateQrCode(text, size, correction, verQR);
             Color();
-            Code.SaveAsPng(Codepath);
-            SetImage();
+            Code.SaveAsPng(path);
+            SetImage(path);
         }
-        private void CreateBar(string text)
+        private void CreateBar(string text, string path)
         {
+            const int AztecIndex = 0;
+            const int Code128Index = 1;
+            const int Code39Index = 2;
+            const int Code93Index = 3;
+            const int DataMatrixIndex = 4;
             var encod = BarcodeEncoding.PDF417;
             //"Aztec", "Code128", "Code39", "Code93", "DataMatrix", "PDF417"
             switch (Array.IndexOf(Encodind, CBEncoding.Text))
             {
-                case 0:
+                case AztecIndex:
                     encod = BarcodeEncoding.Aztec;
                     break;
-                case 1:
+                case Code128Index:
                     encod = BarcodeEncoding.Code128;
                     break;
-                case 2:
+                case Code39Index:
                     encod = BarcodeEncoding.Code39;
                     break;
-                case 3:
+                case Code93Index:
                     encod = BarcodeEncoding.Code93;
                     break;
-                case 4:
+                case DataMatrixIndex:
                     encod = BarcodeEncoding.DataMatrix;
                     break;
             }
             Code = BarcodeWriter.CreateBarcode(text, encod);
             Color();
-            Code.SaveAsPng(Codepath);
-            SetImage();
+            Code.SaveAsPng(path);
+            SetImage(path);
         }
-        private void SetImage()
+
+        private void SetImage(string path)
         {
-            pictureBox1.Image = System.Drawing.Image.FromFile(Codepath);
+            pictureBox1.Image = Image.FromFile(path);
         }
+
         private bool Check()
         {
             if (String.IsNullOrEmpty(TBText.Text) || (!CheckQR.Checked && !CheckBar.Checked))
@@ -145,16 +155,33 @@ namespace QRBarcode
                 }
                 return true;
             }
-            else if (!String.IsNullOrEmpty(TBText.Text) && (CheckQR.Checked || CheckBar.Checked))
+            else
             {
-                errorProvider1.Clear();
-                errorProvider2.Clear();
+                if (!String.IsNullOrEmpty(TBText.Text))
+                {
+                    errorProvider1.Clear();
+                }
+                if (CheckQR.Checked || CheckBar.Checked)
+                {
+                    errorProvider2.Clear();
+                }
                 return false;
             }
-            else return false;
         }
 
         private void BPath_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ChoicePath();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при выборе каталога: " + ex.Message);
+            }
+        }
+
+        private void ChoicePath()
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 
@@ -167,30 +194,43 @@ namespace QRBarcode
 
         private void BSave_Click(object sender, EventArgs e)
         {
-            string destination = TBPath.Text + "/" + TBName.Text + CBExtension.Text;
-            //".png", ".pdf", ".jpeg", ".gif", ".html", ".tiff", ".bmp"
-            
-            switch (Array.IndexOf(extension, CBExtension.Text))
+            try
             {
-                case 0:
+                SaveFile();
+                MessageBox.Show("Файл был успешно сохранён");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при сохранении файла: " + ex.Message);
+            }
+        }
+
+        private void SaveFile()
+        {
+            var destination = TBPath.Text + "/" + TBName.Text +  CBExtension.Text;
+            //"png", "pdf", "jpeg", "jpg", ".gif", "html", "bmp"
+            FileExtensions.FileExtension selectedExtension = (FileExtensions.FileExtension)Enum.Parse(typeof(FileExtensions.FileExtension), CBExtension.Text, true);
+            switch (selectedExtension)
+            {
+                case FileExtensions.FileExtension.png:
                     Code.SaveAsPng(destination);
                     break;
-                case 1:
+                case FileExtensions.FileExtension.pdf:
                     Code.SaveAsPdf(destination);
                     break;
-                case 2:
+                case FileExtensions.FileExtension.jpeg:
                     Code.SaveAsJpeg(destination);
                     break;
-                case 3:
+                case FileExtensions.FileExtension.jpg:
                     Code.SaveAsImage(destination);
                     break;
-                case 4:
+                case FileExtensions.FileExtension.gif:
                     Code.SaveAsGif(destination);
                     break;
-                case 5:
+                case FileExtensions.FileExtension.html:
                     Code.SaveAsHtmlFile(destination);
                     break;
-                case 6:
+                case FileExtensions.FileExtension.bmp:
                     Code.SaveAsWindowsBitmap(destination);
                     break;
             }
@@ -282,6 +322,11 @@ namespace QRBarcode
             {
                 e.Handled = true;
             }
+        }
+
+        private void TBText_TextChanged(object sender, EventArgs e)
+        {
+            Check();
         }
     }
 }

@@ -23,6 +23,10 @@ namespace QRBarcode
 
         private void BSelectFile_Click(object sender, EventArgs e)
         {
+            SelectFileDialog();
+        }
+        private void SelectFileDialog()
+        {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 TBFilePath.Text = openFileDialog1.FileName;
@@ -31,38 +35,65 @@ namespace QRBarcode
 
         private void BReadFile_Click(object sender, EventArgs e)
         {
-            //".png", ".pdf", ".jpeg", ".jpg", ".gif", ".html", ".tiff", ".bmp"
-            rTB.Text = null;
-            switch (Array.IndexOf(extension, Path.GetExtension(TBFilePath.Text)))
+            try
             {
-                case 0:
+                rTB.Text = null;
+                ReadCode();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при чтении файла: " + ex.Message);
+            }
+        }
+
+        private void ReadCode()
+        {
+            //"png", "pdf", "jpeg", "jpg", ".gif", "html", "bmp"
+            FileExtensions.FileExtension selectedExtension = (FileExtensions.FileExtension)Enum.Parse(typeof(FileExtensions.FileExtension), Path.GetExtension(TBFilePath.Text).Substring(1), true);
+            switch (selectedExtension)
+            {
+                case FileExtensions.FileExtension.png:
                     CodeResults = BarcodeReader.Read(TBFilePath.Text);
-                    ReWrite(sender, CodeResults);
+                    ReWrite(CodeResults);
                     break;
-                case 1:
+                case FileExtensions.FileExtension.pdf:
                     CodeResults = BarcodeReader.ReadPdf(TBFilePath.Text);
-                    ReWrite(sender, CodeResults);
+                    ReWrite(CodeResults);
                     break;
-                case 2 - 6:
+                case FileExtensions.FileExtension.jpeg:
                     CodeResults = BarcodeReader.Read(TBFilePath.Text);
-                    ReWrite(sender, CodeResults);
+                    ReWrite(CodeResults);
+                    break;
+                case FileExtensions.FileExtension.jpg:
+                    CodeResults = BarcodeReader.Read(TBFilePath.Text);
+                    ReWrite(CodeResults);
+                    break;
+                case FileExtensions.FileExtension.gif:
+                    CodeResults = BarcodeReader.Read(TBFilePath.Text);
+                    ReWrite(CodeResults);
+                    break;
+                case FileExtensions.FileExtension.html:
+                    CodeResults = BarcodeReader.Read(TBFilePath.Text);
+                    ReWrite(CodeResults);
+                    break;
+                case FileExtensions.FileExtension.bmp:
+                    CodeResults = BarcodeReader.Read(TBFilePath.Text);
+                    ReWrite(CodeResults);
                     break;
                 default:
                     try
                     {
                         CodeResults = BarcodeReader.Read(TBFilePath.Text);
-                        ReWrite(sender, CodeResults);
+                        ReWrite(CodeResults);
                     }
-                    catch //Exception ex
+                    catch
                     {
                         MessageBox.Show("Вы выбрали неверный формат файла");
                     }
                     break;
             }
-
         }
-
-        private void ReWrite(object sender, BarcodeResults Results)
+        private void ReWrite(BarcodeResults Results)
         {
             foreach (var item in Results)
             {
