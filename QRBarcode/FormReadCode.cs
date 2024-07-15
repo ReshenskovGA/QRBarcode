@@ -23,8 +23,16 @@ namespace QRBarcode
 
         private void BSelectFile_Click(object sender, EventArgs e)
         {
-            SelectFileDialog();
+            try
+            {
+                SelectFileDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при выборе файла: " + ex.Message);
+            }
         }
+
         private void SelectFileDialog()
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
