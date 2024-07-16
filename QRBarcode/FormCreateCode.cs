@@ -321,9 +321,9 @@ namespace QRBarcode
             var maxver = "40";
             if (!String.IsNullOrEmpty(TextBQRVer.Text))
             {
-                if (Convert.ToInt32(TextBQRVer.Text) < 1)
+                if (Convert.ToInt32(TextBQRVer.Text) < Convert.ToInt32(minver))
                     TextBQRVer.Text = minver;
-                if (Convert.ToInt32(TextBQRVer.Text) > 40)
+                if (Convert.ToInt32(TextBQRVer.Text) > Convert.ToInt32(maxver))
                     TextBQRVer.Text = maxver;
                 TrackBQRVer.Value = Convert.ToInt32(TextBQRVer.Text);
             }
