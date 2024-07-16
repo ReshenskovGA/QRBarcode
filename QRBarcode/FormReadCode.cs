@@ -18,7 +18,6 @@ namespace QRBarcode
         {
             InitializeComponent();
         }
-        private string[] extension = { ".png", ".pdf", ".jpeg", ".jpg", ".gif", ".html", ".bmp" };
         private BarcodeResults CodeResults;
 
         private void BSelectFile_Click(object sender, EventArgs e)

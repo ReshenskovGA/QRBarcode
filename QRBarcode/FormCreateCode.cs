@@ -33,7 +33,7 @@ namespace QRBarcode
         }
        
         private GeneratedBarcode Code;
-        private static readonly string Folderpath = @"SaveCodes/";
+        private static readonly string Folderpath = "SaveCodes/";
         private int Numcode = 0;
         public FormCreateCode()
         {
@@ -72,14 +72,16 @@ namespace QRBarcode
             if (!Check())
             {
                 Numcode++;
+                var basesize = "500";
+                var basever = "1";
                 var Codepath = Folderpath + Numcode + ".png";
                 var Text = TBText.Text;
                 if (CheckQR.Checked)
                 {
                     if (String.IsNullOrEmpty(TBSizeQR.Text))
-                        TBSizeQR.Text = "500";
+                        TBSizeQR.Text = basesize;
                     if (String.IsNullOrEmpty(TextBQRVer.Text))
-                        TextBQRVer.Text = "1";
+                        TextBQRVer.Text = basever;
                     CreateQR(Text, Codepath);
                 }
                 if (CheckBar.Checked)
@@ -217,7 +219,11 @@ namespace QRBarcode
 
         private void SaveFile()
         {
-            var destination = TBPath.Text + "/" + TBName.Text +  CBExtension.Text;
+            var dot = ".";
+            var fileext = TBName.Text + dot + CBExtension.Text;
+            string[] path = {TBPath.Text, fileext};
+            var destination = Path.Combine(path);
+            Console.WriteLine(destination);
             //"png", "pdf", "jpeg", "jpg", ".gif", "html", "bmp"
             FileExtensions.FileExtension selectedExtension = (FileExtensions.FileExtension)Enum.Parse(typeof(FileExtensions.FileExtension), CBExtension.Text, true);
             switch (selectedExtension)
@@ -311,12 +317,14 @@ namespace QRBarcode
 
         private void TextBQRVer_TextChanged(object sender, EventArgs e)
         {
+            var minver = "1";
+            var maxver = "40";
             if (!String.IsNullOrEmpty(TextBQRVer.Text))
             {
                 if (Convert.ToInt32(TextBQRVer.Text) < 1)
-                    TextBQRVer.Text = "1";
+                    TextBQRVer.Text = minver;
                 if (Convert.ToInt32(TextBQRVer.Text) > 40)
-                    TextBQRVer.Text = "40";
+                    TextBQRVer.Text = maxver;
                 TrackBQRVer.Value = Convert.ToInt32(TextBQRVer.Text);
             }
         }
